@@ -1,0 +1,52 @@
+﻿﻿@{
+    ViewData["Title"] = "Register";
+}
+@model final.ViewModels.RegisterModel
+<div class="container d-flex justify-content-center align-items-center h-100">
+    <div class="card rounded-3 border-0 shadow-lg p-4">
+        <div class="card-header text-center bg-primary text-white py-4">
+            <h3 class="fw-bold">Kayıt Ol</h3>
+        </div>
+        <div class="card-body">
+            <form asp-action="Register" method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label asp-for="FullName" class="form-label">Ad Soyad</label>
+                    <input asp-for="FullName" class="form-control form-control-lg rounded-pill" />
+                    <span asp-validation-for="FullName" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label">E-posta</label>
+                    <input asp-for="Email" class="form-control form-control-lg rounded-pill" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="UserName" class="form-label">Kullanıcı Adı</label>
+                    <input asp-for="UserName" class="form-control form-control-lg rounded-pill" />
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Password" class="form-label">Parola</label>
+                    <input type="password" asp-for="Password" class="form-control form-control-lg rounded-pill" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="PasswordConfirm" class="form-label">Parola Doğrulama</label>
+                    <input type="password" asp-for="PasswordConfirm" class="form-control form-control-lg rounded-pill" />
+                    <span asp-validation-for="PasswordConfirm" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="PhotoFile" class="form-label">Fotoğraf</label>
+                    <input asp-for="PhotoFile" class="form-control form-control-lg rounded-pill" />
+                    <span asp-validation-for="PhotoFile" class="text-danger"></span>
+                </div>
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary btn-lg rounded-pill px-5">Kaydet</button>
+                    <a asp-action="Login" class="btn btn-outline-secondary btn-lg rounded-pill px-5">Oturum Aç</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

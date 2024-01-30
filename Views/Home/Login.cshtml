@@ -1,0 +1,38 @@
+﻿﻿@{
+    ViewData["Title"] = "Login";
+}
+@model final.ViewModels.LoginModel
+<div class="container d-flex justify-content-center align-items-center h-100">
+    <div class="card rounded-3 border-0 shadow-lg p-4">
+        <div class="card-header text-center bg-primary text-white py-4">
+            <h3 class="fw-bold">Oturum Aç</h3>
+        </div>
+        <div class="card-body">
+            <form asp-action="Login" method="post">
+                <div class="mb-3">
+                    <label asp-for="UserName" class="form-label">Kullanıcı Adı</label>
+                    <input asp-for="UserName" class="form-control form-control-lg rounded-pill" />
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Password" class="form-label">Parola</label>
+                    <input type="password" asp-for="Password" class="form-control form-control-lg rounded-pill" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="KeepMe" class="form-check-label">
+                        <input asp-for="KeepMe" class="form-check-input" /> Beni Hatırla
+                    </label>
+                </div>
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary btn-lg rounded-pill px-5">Giriş</button>
+                    <a asp-action="Register" class="btn btn-outline-secondary btn-lg rounded-pill px-5">Kayıt Ol</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
